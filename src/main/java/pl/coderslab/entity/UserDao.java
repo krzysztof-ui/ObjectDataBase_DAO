@@ -88,7 +88,12 @@ public class UserDao {
             user.setPassword(password);
             // int id = rs.getInt("id");
         }
-        return user;
+       if (user.getUserName() != null){
+           return user;
+       } else {
+            return null;
+
+        }
     }
 
     public void update(User user) throws SQLException {
@@ -154,7 +159,6 @@ public class UserDao {
 
         return users;
     }
-
 
 
 }

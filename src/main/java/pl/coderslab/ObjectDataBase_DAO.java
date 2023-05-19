@@ -20,10 +20,15 @@ public class ObjectDataBase_DAO {
         UserDao modifierUser = new UserDao();
 
         User readByIdUser = new User();
-        //readByIdUser =  readById.read(1);
-        //System.out.println("readByIdUser.getUserName() = " + readByIdUser.getUserName());
-        //System.out.println("readByIdUser.getUserName() = " + readByIdUser.getEmail());
-        //System.out.println("readByIdUser.getUserName() = " + readByIdUser.getPassword());
+        int id=2;
+        if (readById.read(id)!=null) {
+            readByIdUser = readById.read(id);
+            System.out.println("readByIdUser.getUserName() = " + readByIdUser.getUserName());
+            System.out.println("readByIdUser.getUserName() = " + readByIdUser.getEmail());
+            System.out.println("readByIdUser.getUserName() = " + readByIdUser.getPassword());
+        } else System.out.println("Użytkownik o podanym id nie istnieje");
+
+
         //readByIdUser.setPassword("Nowe hasło");
         //readByIdUser.setUserName("Filemon");
         //readByIdUser.setEmail("filemon@onet.pl");
@@ -34,6 +39,11 @@ public class ObjectDataBase_DAO {
         User[] users = new User[0];
         users= findByUserName.findAll();
         System.out.println("findByUserName.findAll() = " + users[0].getEmail());
+
+        UserDao deleteUser = new UserDao();
+        deleteUser.delete(id);
+
+
 
 
     }
